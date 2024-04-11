@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Flask</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .gray-box {
+            width: 200px;
+            height: 200px;
+            background-color: #2d2d2d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        #qrcode-btn {
+            margin-top: 20px; /* 네모 밑으로 이동 */
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* 버튼 스타일 유지 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gray-box">
+            <!-- 네모 안에 버튼 포함 -->
+            <a href="/select"><button id="qrcode-btn">QR코드 인식</button></a>
+        </div>
+    </div>
+</body>
+</html>
+
+

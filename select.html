@@ -1,0 +1,33 @@
+<!-- select.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Page</title>
+</head>
+<body>
+    <h1>노래방 기기 번호</h1>
+    <div>
+        <input type="checkbox" id="a" name="a">
+        <label for="a">A</label><br>
+        <input type="checkbox" id="b" name="b">
+        <label for="b">B</label><br>
+        <input type="checkbox" id="c" name="c">
+        <label for="c">C</label><br>
+        <input type="checkbox" id="d" name="d">
+        <label for="d">D</label><br>
+    </div>
+    <button onclick="confirmSelection()">선택</button>
+
+    <script>
+        function confirmSelection() {
+            var selectedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            var message = selectedCount + '명이 부르시겠습니까?\n 솔로/듀엣 페이지 나눠야합니다';
+            if (confirm(message)) {
+                window.location.href = "/main.html";
+            }
+        }
+    </script>
+</body>
+</html>

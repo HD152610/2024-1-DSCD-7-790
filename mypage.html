@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마이 페이지</title>
+<style>
+    table {
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .logout-btn {
+        float: right;
+    }
+</style>
+</head>
+<body>
+
+<h1>마이페이지</h1>
+<button class="logout-btn" onclick="redirectToQR()">로그아웃</button>
+
+<script>
+    function redirectToQR() {
+        window.location.href = "/qr.html";
+    }
+</script>
+
+<h2>회원 정보 조회 \n DB user 테이블 연결</h2>
+
+<input type="text" id="memberId" placeholder="회원 ID 입력">
+<button onclick="searchMember()">검색</button>
+
+<table id="memberInfoTable">
+</table>
+
+<script>
+function searchMember() {
+    var memberId = document.getElementById("memberId").value;
+    // 아이디에 해당하는 회원 정보를 서버에서 가져오는 AJAX 요청 등을 수행
+    // 이 예시에서는 미리 정의된 데이터를 사용하겠습니다.
+    var memberData = getMemberData(memberId);
+    displayMemberInfo(memberData);
+}
+
+function getMemberData(memberId) {
+    // 여기서는 하드코딩된 데이터를 사용합니다. 실제로는 서버에서 데이터를 가져와야 합니다.
+    var members = {
+        // 여기에 회원 정보를 넣어주세요. 예시: "아이디": {성별: "...", 나이: ..., 선호곡: "...", 선호이유: "...", 음역대: "...", MBTI: "..."}
+        "1": {"성별": "남", "나이": 25, "선호 곡": "임창정-소주한잔", "선호 이유": "장르가 맞아서|멜로디가 좋아서|음역대가 자기랑 맞아서|같이 부르기 좋아서", "음역대": "2옥타브 라~시(임창정-소주한잔, izi-응급실, 로이킴 - 봄봄봄)", "MBTI": "ENFJ"},
+        "2": {"성별": "남", "나이": 23, "선호 곡": "한지상-she was there", "선호 이유": "장르가 맞아서|가사가 마음에 들어서|멜로디가 좋아서|음역대가 자기랑 맞아서", "음역대": "3옥타브 도~레(닐로-지나오다, 엠씨더맥스-어디에도)", "MBTI": "INFP"},
+        "3": {"성별": "남", "나이": 25, "선호 곡": "오웬-처음이니까", "선호 이유": "가사가 마음에 들어서|멜로디가 좋아서|같이 부르기 좋아서", "음역대": "2옥타브 파~솔(버스커버스커-정류장, 폴킴-안녕)", "MBTI": "INFP"},
+        "4": {"성별": "남", "나이": 21, "선호 곡": "YB-흰수염고래", "선호 이유": "음역대가 자기랑 맞아서", "음역대": "2옥타브 라~시(임창정-소주한잔, izi-응급실, 로이킴 - 봄봄봄)", "MBTI": "ENTJ"},
+        "5": {"성별": "여", "나이": 19, "선호 곡": "데이식스-한 페이지가 될 수 있게", "선호 이유": "좋아하는 장르라서|같이 부르기 좋아서", "음역대": "2옥타브 라~시(임창정-소주한잔, izi-응급실, 로이킴 - 봄봄봄)", "MBTI": "ISFP"},
+        "6": {"성별": "남", "나이": 25, "선호 곡": "노라조-형", "선호 이유": "가수가 좋아서|멜로디가 좋아서|가사가 마음에 들어서|좋아하는 장르라서", "음역대": "3옥타브 레(닐로-지나오다, 엠씨더맥스-어디에도)", "MBTI": "ENTJ"},
+        "7": {"성별": "여", "나이": 19, "선호 곡": "소녀시대-다시 만난 세계", "선호 이유": "가수가 좋아서|멜로디가 좋아서|스트레스가 풀려서", "음역대": "3옥타브 솔~라(스틸하트 - she's gone, 소찬휘 - tears)", "MBTI": "ISTJ"},
+        "8": {"성별": "남", "나이": 22, "선호 곡": "김경호-사랑했지만", "선호 이유": "가수가 좋아서", "음역대": "2옥타브 라~시(임창정-소주한잔, izi-응급실, 로이킴 - 봄봄봄)", "MBTI": "ISTJ"},
+        "71": {"성별": "남", "나이": 32, "선호곡": "김경호", "선호이유": "음역대가 자기랑 맞아서|스트레스가 풀려서|좋아하는 장르라서", "음역대": "3옥타브 솔~라(스틸하트 - she's gone, 소찬휘 - tears)", "MBTI": "INFP"},
+        // 추가적인 회원 정보를 계속해서 넣어주세요.
+    };
+
+    // 입력된 아이디에 해당하는 회원 정보를 반환합니다.
+    return members[memberId];
+}
+
+function displayMemberInfo(memberData) {
+    var table = document.getElementById("memberInfoTable");
+    // 기존 테이블 내용을 초기화합니다.
+    table.innerHTML = "";
+    
+    // 회원 정보를 표에 추가합니다.
+    for (var key in memberData) {
+        // "이름" 키를 제외하고 표시합니다.
+        if (key !== "이름") {
+            var row = table.insertRow();
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.innerHTML = "<b>" + key + "</b>";
+            cell2.innerHTML = memberData[key];
+        }
+    }
+}
+</script>
+
+</body>
+</html>

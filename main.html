@@ -1,0 +1,40 @@
+<!-- main.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+    <button onclick="redirectToMyPage()">마이페이지</button>
+    <table class="song-table">
+        <tr>
+            <th colspan="2">노래 추천 \n추천 알고리즘 - 산출값 연결 </th>
+        </tr>
+        <tr>
+            <td>노래 1 제목</td>
+            <td><button class="song-select" onclick="showAlert()">선택</button></td>
+        </tr>
+        <tr>
+            <td>노래 2 제목</td>
+            <td><button class="song-select" onclick="showAlert()">선택</button></td>
+        </tr>
+        <tr>
+            <td>노래 3 제목</td>
+            <td><button class="song-select" onclick="showAlert()">선택</button></td>
+        </tr>
+        <!-- 다른 노래 항목을 필요에 따라 추가할 수 있습니다 -->
+    </table>
+
+    <script>
+        function showAlert() {
+            alert("TJ 12345\n금영 67890");
+        }
+
+        function redirectToMyPage() {
+            window.location.href = "mypage.html";
+        }
+    </script>
+</body>
+</html>
