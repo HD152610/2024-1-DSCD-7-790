@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회원 정보 입력</title>
+</head>
+<body>
+
+<h1>회원 정보 입력</h1>
+
+<form action="/add_member" method="post">
+    <label for="phone_number">전화번호:</label><br>
+    <input type="text" id="phone_number" name="phone_number" required><br><br>
+
+    <label>성별:</label><br>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">남성</label><br>
+    <input type="radio" id="female" name="gender" value="female" required>
+    <label for="female">여성</label><br><br>
+
+    <label for="age">나이:</label><br>
+    <input type="number" id="age" name="age" required><br><br>
+
+    <label for="favorite_song">선호 곡:</label><br>
+    <input type="text" id="favorite_song" name="favorite_song" required><br><br>
+
+    <label for="reasons">선호 이유:</label><br>
+    <input type="checkbox" id="reason1" name="reasons" value="reason1">
+    <label for="reason1">가사가 마음에 들어서</label><br>
+    <input type="checkbox" id="reason2" name="reasons" value="reason2">
+    <label for="reason2">멜로디가 좋아서</label><br>
+    <!-- 추가적인 이유 항목을 필요에 따라 추가할 수 있습니다 -->
+
+    <br><label for="vocal_range">음역대:</label><br>
+    <input type="radio" id="range1" name="vocal_range" value="range1" required>
+    <label for="range1">1옥타브 도~시</label><br>
+    <input type="radio" id="range2" name="vocal_range" value="range2" required>
+    <label for="range2">2옥타브 라~시</label><br>
+    <!-- 추가적인 음역대 항목을 필요에 따라 추가할 수 있습니다 -->
+
+    <br><label for="mbti">MBTI:</label><br>
+    <input type="radio" id="mbti1" name="mbti" value="ISTJ" required>
+    <label for="mbti1">ISTJ</label><br>
+    <input type="radio" id="mbti2" name="mbti" value="INFP" required>
+    <label for="mbti2">INFP</label><br>
+    <!-- 추가적인 MBTI 항목을 필요에 따라 추가할 수 있습니다 -->
+
+    <br><br><input type="submit" value="제출">
+</form>
+
+</body>
+</html>
+
