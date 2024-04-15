@@ -1,7 +1,7 @@
 # 2024-1-DSCD-7-790
 
-# 240411 플라스크- html로 넘기기까지만
-# cmd -pip install flask 요
+# 240415 플라스크- html로 넘기기까지만
+# cmd -pip install flask,mysql 요
 
 from flask import Flask, render_template
 
