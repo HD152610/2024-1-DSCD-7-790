@@ -1,6 +1,6 @@
 # 2024-1-DSCD-7-790
 
-# 240415 플라스크- html로 넘기기까지만
+# 240415 최초 페이지 추가, 회원가입 정보 넘기는 거 구현 못함
 # cmd -pip install flask,mysql 요
 
 from flask import Flask, render_template
