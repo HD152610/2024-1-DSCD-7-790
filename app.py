@@ -1,9 +1,19 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
+    return render_template('hi.html')
+
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+    if request.method == 'POST':
+        return redirect(url_for('index'))
+    return render_template('add.html')
+
+@app.route('/qr')
+def qr():
     return render_template('qr.html')
 
 @app.route('/select')
@@ -18,11 +28,6 @@ def main():
 def mypage():
     return render_template('mypage.html')
 
-@app.route('/qr.html')
-def qr():
-    return render_template('qr.html')
-
 if __name__ == '__main__':
     app.run(debug=True)
-
 

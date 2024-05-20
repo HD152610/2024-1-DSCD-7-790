@@ -24,7 +24,7 @@
     <script>
         function confirmSelection() {
             var selectedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
-            var message = selectedCount + '명이 부르시겠습니까?\n 솔로/듀엣 페이지 나눠야합니다';
+            var message = selectedCount + '명이 부르시겠습니까? - 솔로/듀엣 페이지 나눠야됨';
             if (confirm(message)) {
                 window.location.href = "/main.html";
             }
